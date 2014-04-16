@@ -5,7 +5,7 @@ Simple XML Formatter, hit `CMD-SHIFT-X`.
 ## Preview
 
 With UTF-8 header setting (Default)
-![Format in Action](http://www.neyestrabelli.com/arquivos/xml-formatter.gif)
+![Format in Action](http://www.neyestrabelli.com/arquivos/xml-formatter1.gif)
 
 Without UTF-8 header setting
 

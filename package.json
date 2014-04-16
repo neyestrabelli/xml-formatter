@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "XML Formatter",
   "activationEvents": ["xml-formatter:indent"],
-  "repository": "https://github.com/atom/xml-formatter",
+  "repository": "https://github.com/neyestrabelli/xml-formatter",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"

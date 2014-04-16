@@ -1,0 +1,15 @@
+{
+  "name": "xml-formatter",
+  "main": "./lib/xml-formatter",
+  "version": "0.0.1",
+  "description": "XML Formatter",
+  "activationEvents": ["xml-formatter:indent"],
+  "repository": "https://github.com/atom/xml-formatter",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "xml2js" : "0.4.2"
+  }
+}

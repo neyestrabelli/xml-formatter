@@ -1,7 +1,7 @@
 {
   "name": "xml-formatter",
   "main": "./lib/xml-formatter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "XML Formatter",
   "activationEvents": [
     "xml-formatter:indent"
@@ -12,6 +12,5 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "xml2js": "0.4.2"
   }
 }

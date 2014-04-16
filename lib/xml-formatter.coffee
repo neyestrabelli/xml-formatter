@@ -1,30 +1,35 @@
 module.exports =
-  configDefaults:
-    utf8_encoding_header:true
-
   activate: ->
     atom.workspaceView.command "xml-formatter:indent", => @indent()
 
   indent: ->
-    opts = {}
-    for configKey, defaultValue of @configDefaults
-      opts[configKey] = atom.config.get('xml-formatter.'+configKey) ? defaultValue
-
-    xmldef =  xmldec: {}
-    if opts.utf8_encoding_header
-         xmldef = xmldec: {'version': '1.0','encoding': 'UTF-8'}
-
     # This assumes the active pane item is an editor
     editor = atom.workspace.getActiveEditor()
     # get all text
     if editor
+      formatted = ''
       allText = editor.getText()
-      xml2js = require 'xml2js'
-      parser = new xml2js.Parser()
-      builder = new xml2js.Builder(xmldef)
-      #parse and builder new
-      parser.parseString allText, (err, result) ->
-       if err
-         alert('This file is not a xml')
-        else
-          editor.setText(builder.buildObject(result))
+      reg = /(>)\s*(<)(\/*)/g
+      xml = allText.replace(/\r|\n/g, '')
+      xml = xml.replace(reg, '$1\r\n$2$3')
+      pad = 0;
+      for node, i in xml.split('\r\n')
+          indent = 0
+          if node.match(/.+<\/\w[^>]*>$/)
+            indent = 0
+          else if node.match(/^<\/\w/)
+            pad -= 1  unless pad is 0
+          else if node.match(/^<\w[^>]*[^\/]>.*$/)
+            indent = 1
+          else
+            indent = 0
+          padding = ""
+          i = 0
+
+          while i < pad
+            padding += "  "
+            i++
+          formatted += padding + node + "\r\n"
+          pad += indent
+
+      editor.setText(formatted)

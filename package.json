@@ -6,10 +6,25 @@
   "activationEvents": [
     "xml-formatter:indent"
   ],
-  "repository": "https://github.com/neyestrabelli/xml-formatter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neyestrabelli/xml-formatter"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "readme": "# xml-formatter package\n\nSimple XML Formatter, hit `CMD-SHIFT-X`.\n\n## Preview\n\n![Format in Action 2](http://www.neyestrabelli.com/arquivos/xml-formatter3.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/neyestrabelli/xml-formatter/issues"
+  },
+  "homepage": "https://github.com/neyestrabelli/xml-formatter",
+  "_id": "xml-formatter@0.3.0",
+  "dist": {
+    "shasum": "b65dc3311cf57655cfd43ec33470f453a7577c8a"
+  },
+  "_resolved": "/var/folders/dz/sj97fjtn451dtvj6pkwn4vsc0000gq/T/d-114317-3233-1272v8e/package.tgz",
+  "_from": "/var/folders/dz/sj97fjtn451dtvj6pkwn4vsc0000gq/T/d-114317-3233-1272v8e/package.tgz"
 }

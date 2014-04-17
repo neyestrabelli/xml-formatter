@@ -1,14 +1,23 @@
 module.exports =
+  configDefaults:
+      xml_utf8_header: true
+
   activate: ->
     atom.workspaceView.command "xml-formatter:indent", => @indent()
 
   indent: ->
-    # This assumes the active pane item is an editor
+    opts = {}
+    for configKey, defaultValue of @configDefaults
+       opts[configKey] = atom.config.get('xml-formatter.'+configKey) ? defaultValue
     editor = atom.workspace.getActiveEditor()
-    # get all text
     if editor
-      formatted = ''
       allText = editor.getText()
+      formatted = ''
+      if opts.xml_utf8_header
+        regXML = /^<\?xml.+\?>/
+        allText = allText.replace(regXML,'')
+        allText = '<?xml version="1.0" encoding="UTF-8"?>' +  allText 
+
       reg = /(>)\s*(<)(\/*)/g
       xml = allText.replace(/\r|\n/g, '')
       xml = xml.replace(reg, '$1\r\n$2$3')

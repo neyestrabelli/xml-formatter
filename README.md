@@ -10,4 +10,12 @@ Simple XML Formatter, hit `CMD-SHIFT-X`.
 
 XML UTF-8 header (default)
 
-- Force `<?xml version="1.0" encoding="UTF-8"?>` in header xml 
+- Force `<?xml version="1.0" encoding="UTF-8"?>` in header xml
+
+Indent Character
+
+- Set the indent character (tab could be used)
+
+Spaces Indent
+
+- Default 2 

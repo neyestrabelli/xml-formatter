@@ -36,7 +36,7 @@ module.exports =
             indent = 0
           padding = ""
           i = 0
-
+          opts.indent_character = opts.indent_character.substr(0,1)
           while i < pad
             padding += str_pad "", opts.spaces_indent, opts.indent_character
             i++

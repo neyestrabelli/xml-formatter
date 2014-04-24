@@ -1,7 +1,8 @@
 module.exports =
   configDefaults:
-      xml_utf8_header: true,
+      xml_utf8_header: true
       spaces_indent: 2
+      indent_character: " "
 
   activate: ->
     atom.workspaceView.command "xml-formatter:indent", => @indent()
@@ -37,7 +38,7 @@ module.exports =
           i = 0
 
           while i < pad
-            padding += str_pad "", opts.spaces_indent, " "
+            padding += str_pad "", opts.spaces_indent, opts.indent_character
             i++
           formatted += padding + node + "\r\n"
           pad += indent

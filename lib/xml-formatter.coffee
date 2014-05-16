@@ -20,8 +20,10 @@ module.exports =
         allText = allText.replace(regXML,'')
         allText = '<?xml version="1.0" encoding="UTF-8"?>' +  allText
 
-      reg = /(>)\s*(<)(\/*)/g
       xml = allText.replace(/\r|\n/g, '')
+      reg_cdata = /(<!\[)(.+?)(\]\]>)/g
+      xml = xml.replace(reg_cdata,'@cdata_ini@$2@cdata_end@')
+      reg = /(>)\s*(<)(\/*)/g
       xml = xml.replace(reg, '$1\r\n$2$3')
       pad = 0;
       for node, i in xml.split('\r\n')
@@ -42,7 +44,10 @@ module.exports =
             i++
           formatted += padding + node + "\r\n"
           pad += indent
-
+      replace_cdata_ini = /@cdata_ini@/g
+      replace_cdata_end = /@cdata_end@/g
+      formatted = formatted.replace(replace_cdata_ini,'<![')
+      formatted = formatted.replace(replace_cdata_end,']]>')
       editor.setText(formatted)
 
 str_pad = (input, pad_length, pad_string, pad_type) ->

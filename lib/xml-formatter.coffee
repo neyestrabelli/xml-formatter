@@ -32,7 +32,7 @@ module.exports =
             indent = 0
           else if node.match(/^<\/\w/)
             pad -= 1  unless pad is 0
-          else if node.match(/^<\w[^>]*[^\/]>.*$/)
+          else if node.match(/^<\w/) and !node.match(/\/>/)
             indent = 1
           else
             indent = 0

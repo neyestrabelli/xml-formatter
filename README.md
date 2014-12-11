@@ -1,6 +1,7 @@
 # xml-formatter package
 
-Simple XML Formatter, hit `CMD-SHIFT-X`.
+Simple XML Formatter, hit `CMD-SHIFT-X` on a Mac or `SHIFT-CTRL-X` on Windows or
+Linux.
 
 ## Preview
 
@@ -18,4 +19,4 @@ Indent Character
 
 Spaces Indent
 
-- Default 2 
+- Default 2

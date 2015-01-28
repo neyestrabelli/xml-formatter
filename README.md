@@ -13,10 +13,13 @@ XML UTF-8 header (default)
 
 - Force `<?xml version="1.0" encoding="UTF-8"?>` in header xml
 
+Use Tab
+- Use tab instead of spaces
+
 Indent Character
 
-- Set the indent character (tab could be used)
+- Set the indent character (only if you don't use tab)
 
-Spaces Indent
+Number Char Indent
 
 - Default 2

@@ -1,16 +1,38 @@
 module.exports =
-  configDefaults:
-      xml_utf8_header: true
-      spaces_indent: 2
-      indent_character: " "
+config:
+    xmlUtf8Header:
+      type: 'boolean'
+      default: false
+    useTab:
+      type: 'string'
+      default:'false'
+      enum: ['false','true']
+    numberCharIndent:
+      type: 'integer'
+      default: 2
+    indentCharacter:
+      type: 'string'
+      default: " "
+
 
   activate: ->
     atom.commands.add 'atom-workspace', "xml-formatter:indent", => @indent()
+    atom.config.observe 'xml-formatter.xmlUtf8Header', (value) =>
+          @xmlUtf8Header = value
+    atom.config.observe 'xml-formatter.useTab', (value) =>
+          @useTab = value
+    atom.config.observe 'xml-formatter.numberCharIndent', (value) =>
+          @numberCharIndent = value
+    atom.config.observe 'xml-formatter.indentCharacter', (value) =>
+          @indentCharacter = value
 
   indent: ->
     opts = {}
-    for configKey, defaultValue of @configDefaults
-       opts[configKey] = atom.config.get('xml-formatter.'+configKey) ? defaultValue
+    opts.xml_utf8_header = atom.config.get('xml-formatter.xmlUtf8Header')
+    opts.use_tab = atom.config.get('xml-formatter.useTab')
+    opts.number_char_indent = atom.config.get('xml-formatter.numberCharIndent')
+    opts.indent_character = atom.config.get('xml-formatter.indentCharacter')
+    opts.indent_character = "\t"  if opts.use_tab is "true"
     editor = atom.workspace.getActiveEditor()
     if editor
       allText = editor.getText()
@@ -38,9 +60,9 @@ module.exports =
             indent = 0
           padding = ""
           i = 0
-          opts.indent_character = opts.indent_character.substr(0,1)
+
           while i < pad
-            padding += str_pad "", opts.spaces_indent, opts.indent_character
+            padding += str_pad "", opts.number_char_indent, opts.indent_character
             i++
           formatted += padding + node + "\r\n"
           pad += indent

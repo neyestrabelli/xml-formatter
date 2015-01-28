@@ -5,7 +5,7 @@ module.exports =
       indent_character: " "
 
   activate: ->
-    atom.workspaceView.command "xml-formatter:indent", => @indent()
+    atom.commands.add 'atom-workspace', "xml-formatter:indent", => @indent()
 
   indent: ->
     opts = {}

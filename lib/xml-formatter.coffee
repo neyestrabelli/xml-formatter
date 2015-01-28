@@ -2,7 +2,7 @@ module.exports =
 config:
     xmlUtf8Header:
       type: 'boolean'
-      default: false
+      default: true
     useTab:
       type: 'string'
       default:'false'

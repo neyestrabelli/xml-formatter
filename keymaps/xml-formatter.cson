@@ -7,8 +7,8 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'.platform-darwin .editor':
+'body.platform-darwin atom-text-editor':
   'cmd-shift-x': 'xml-formatter:indent'
 
-'.platform-win32 .editor, .platform-linux .editor':
+'body.platform-win32 atom-text-editor, body.platform-linux atom-text-editor':
   'shift-ctrl-x': 'xml-formatter:indent'

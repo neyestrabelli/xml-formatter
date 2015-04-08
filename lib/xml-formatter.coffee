@@ -33,7 +33,7 @@ config:
     opts.number_char_indent = atom.config.get('xml-formatter.numberCharIndent')
     opts.indent_character = atom.config.get('xml-formatter.indentCharacter')
     opts.indent_character = "\t"  if opts.use_tab is "true"
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     if editor
       allText = editor.getText()
       formatted = ''

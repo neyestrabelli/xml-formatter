@@ -23,3 +23,7 @@ Indent Character
 Number Char Indent
 
 - Default 2
+
+End Line Character
+
+- You can choose :CR+LF or LF

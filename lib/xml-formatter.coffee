@@ -13,7 +13,10 @@ config:
     indentCharacter:
       type: 'string'
       default: " "
-
+    endLineCharacter:
+      type: 'string'
+      default: 'CR+LF (\\r\\n)'
+      enum:  ['CR+LF (\\r\\n)','LF (\\n)']
 
   activate: ->
     atom.commands.add 'atom-workspace', "xml-formatter:indent", => @indent()
@@ -25,6 +28,8 @@ config:
           @numberCharIndent = value
     atom.config.observe 'xml-formatter.indentCharacter', (value) =>
           @indentCharacter = value
+      atom.config.observe 'xml-formatter.endLineCharacter', (value) =>
+            @endLineCharacter = value
 
   indent: ->
     opts = {}
@@ -33,6 +38,11 @@ config:
     opts.number_char_indent = atom.config.get('xml-formatter.numberCharIndent')
     opts.indent_character = atom.config.get('xml-formatter.indentCharacter')
     opts.indent_character = "\t"  if opts.use_tab is "true"
+    opts.crlf = atom.config.get('xml-formatter.endLineCharacter')
+    if opts.crlf == "CR+LF (\\r\\n)"
+      opts.crlf = "\r\n";
+    else
+      opts.crlf = "\n";
     editor = atom.workspace.getActiveEditor()
     if editor
       allText = editor.getText()
@@ -64,7 +74,7 @@ config:
           while i < pad
             padding += str_pad "", opts.number_char_indent, opts.indent_character
             i++
-          formatted += padding + node + "\r\n"
+          formatted += padding + node + opts.crlf
           pad += indent
       replace_cdata_ini = /@cdata_ini@/g
       replace_cdata_end = /@cdata_end@/g

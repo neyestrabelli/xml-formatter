@@ -43,7 +43,7 @@ config:
       opts.crlf = "\r\n";
     else
       opts.crlf = "\n";
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     if editor
       allText = editor.getText()
       formatted = ''

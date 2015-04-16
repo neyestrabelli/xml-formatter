@@ -1,7 +1,8 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  '.overlayer':
-      'Enable xml-formatter': 'xml-formatter:indent'
+  'atom-workspace': [
+    { 'label': 'Enable xml-formatter', 'command': 'xml-formatter:indent' }
+  ]
 
 'menu': [
   {

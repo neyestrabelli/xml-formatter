@@ -3,9 +3,9 @@
   "main": "./lib/xml-formatter",
   "version": "0.8.1",
   "description": "XML Formatter",
-  "activationEvents": [
-    "xml-formatter:indent"
-  ],
+  "activationCommands": {
+    "atom-workspace": ["xml-formatter:indent"]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/neyestrabelli/xml-formatter"

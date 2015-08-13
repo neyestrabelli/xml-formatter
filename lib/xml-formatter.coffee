@@ -46,6 +46,7 @@ config:
     editor = atom.workspace.getActiveTextEditor()
     if editor
       allText = editor.getText()
+      allText = allText.replace /^\s+|\s+$/g, ""
       formatted = ''
       if opts.xml_utf8_header
         regXML = /^<\?xml.+\?>/

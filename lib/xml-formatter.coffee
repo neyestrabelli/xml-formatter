@@ -20,6 +20,7 @@ config:
 
   activate: ->
     atom.commands.add 'atom-workspace', "xml-formatter:indent", => @indent()
+    atom.commands.add 'atom-workspace', "xml-formatter:selection", => @indent(true)
     atom.config.observe 'xml-formatter.xmlUtf8Header', (value) =>
           @xmlUtf8Header = value
     atom.config.observe 'xml-formatter.useTab', (value) =>
@@ -31,7 +32,8 @@ config:
       atom.config.observe 'xml-formatter.endLineCharacter', (value) =>
             @endLineCharacter = value
 
-  indent: ->
+  indent:(sel) ->
+    selected = if sel then true else false
     opts = {}
     opts.xml_utf8_header = atom.config.get('xml-formatter.xmlUtf8Header')
     opts.use_tab = atom.config.get('xml-formatter.useTab')
@@ -45,7 +47,7 @@ config:
       opts.crlf = "\n";
     editor = atom.workspace.getActiveTextEditor()
     if editor
-      allText = editor.getText()
+      allText = if selected then editor.getSelectedText() else editor.getText()
       allText = allText.replace /^\s+|\s+$/g, ""
       formatted = ''
       if opts.xml_utf8_header
@@ -81,7 +83,7 @@ config:
       replace_cdata_end = /@cdata_end@/g
       formatted = formatted.replace(replace_cdata_ini,'<![')
       formatted = formatted.replace(replace_cdata_end,']]>')
-      editor.setText(formatted)
+      if selected then editor.insertText(formatted) else editor.setText(formatted)
 
 str_pad = (input, pad_length, pad_string, pad_type) ->
 

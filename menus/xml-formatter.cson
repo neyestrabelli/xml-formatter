@@ -1,7 +1,9 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   'atom-text-editor': [
-    { 'label': 'Format XML', 'command': 'xml-formatter:indent' }
+    { 'label': 'xml-formatter: Entire File', 'command': 'xml-formatter:indent' },
+    { 'label': 'xml-formatter: Selection', 'command': 'xml-formatter:selection' }
+
   ]
 
 'menu': [
@@ -10,7 +12,10 @@
     'submenu': [
       'label': 'XML Formatter'
       'submenu': [
-        { 'label': 'Indent', 'command': 'xml-formatter:indent' }
+        { 'label': 'Indent', 'command': 'xml-formatter:indent' },
+        { 'label': 'Selection', 'command': 'xml-formatter:selection' }
+
+
       ]
     ]
   }

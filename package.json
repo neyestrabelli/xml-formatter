@@ -1,7 +1,7 @@
 {
   "name": "xml-formatter",
   "main": "./lib/xml-formatter",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "XML Formatter",
   "activationCommands": {
     "atom-workspace": [

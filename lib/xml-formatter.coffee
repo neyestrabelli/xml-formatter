@@ -21,6 +21,7 @@ config:
   activate: ->
     atom.commands.add 'atom-workspace', "xml-formatter:indent", => @indent()
     atom.commands.add 'atom-workspace', "xml-formatter:selection", => @indent(true)
+    atom.commands.add 'atom-workspace', "xml-formatter:minify", => @minify()
     atom.config.observe 'xml-formatter.xmlUtf8Header', (value) =>
           @xmlUtf8Header = value
     atom.config.observe 'xml-formatter.useTab', (value) =>
@@ -32,6 +33,13 @@ config:
       atom.config.observe 'xml-formatter.endLineCharacter', (value) =>
             @endLineCharacter = value
 
+  minify: ->
+    editor = atom.workspace.getActiveTextEditor()
+    allText = editor.getText()
+    allText = allText.replace(/\r|\n/g, '')
+    allText = allText.replace /^\s+|\s+$/g, ""
+    allText = allText.replace /(>)(\s+[^<])/g, "$1"
+    editor.setText(allText)
   indent:(sel) ->
     selected = if sel then true else false
     opts = {}

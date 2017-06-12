@@ -1,7 +1,13 @@
 # xml-formatter package
 
-Simple XML Formatter, hit `CMD-SHIFT-X` on a Mac or `SHIFT-CTRL-X` on Windows or
-Linux.
+Simple XML Formatter
+
+Formatter
+  hit `CMD-SHIFT-X` on a Mac or `SHIFT-CTRL-X` on Windows or Linux.
+
+Minify (remove spaces and linebreaks)
+  hit `CMD-SHIFT-M` on Mac or `SHIFT-CTRL-M` on Windows or Linux.
+
 
 ## Preview
 

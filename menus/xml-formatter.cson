@@ -3,6 +3,7 @@
   'atom-text-editor': [
     { 'label': 'xml-formatter: Entire File', 'command': 'xml-formatter:indent' },
     { 'label': 'xml-formatter: Selection', 'command': 'xml-formatter:selection' }
+    { 'label': 'xml-formatter: Minify', 'command': 'xml-formatter:minify' }
 
   ]
 
@@ -13,7 +14,8 @@
       'label': 'XML Formatter'
       'submenu': [
         { 'label': 'Indent', 'command': 'xml-formatter:indent' },
-        { 'label': 'Selection', 'command': 'xml-formatter:selection' }
+        { 'label': 'Selection', 'command': 'xml-formatter:selection' },
+        { 'label': 'Minify', 'command': 'xml-formatter:minify' }
 
 
       ]

@@ -1,0 +1,10 @@
+{
+  "body.platform-win32 atom-text-editor, body.platform-linux atom-text-editor": {
+      "shift-ctrl-x": "xml-formatter:indent",
+      "shift-ctrl-m": "xml-formatter:minify"
+  },
+  "body.platform-darwin atom-text-editor": {
+    "cmd-shift-x": "xml-formatter:indent",
+    "cmd-shift-m": "xml-formatter:minify"
+    }
+}

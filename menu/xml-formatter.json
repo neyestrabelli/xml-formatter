@@ -1,0 +1,42 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+        {
+          "label": "Indent XML",
+          "command": "xml-formatter:indent"
+      },
+      {
+        "label": "Indent Selected XML",
+        "command": "xml-formatter:selected"
+    },
+      {
+        "label": "XML Minify",
+        "command": "xml-formatter:minify"
+     }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "xml-formatter",
+          "submenu": [
+              {
+                "label": "Indent XML",
+                "command": "xml-formatter:indent"
+            },
+            {
+              "label": "Indent Selected XML",
+              "command": "xml-formatter:selected"
+          },
+            {
+              "label": "Minify",
+              "command": "xml-formatter:minify"
+              }
+          ]
+        }
+      ]
+    }
+  ]
+}

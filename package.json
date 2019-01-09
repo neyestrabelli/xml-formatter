@@ -3,18 +3,10 @@
   "main": "./lib/xml-formatter",
   "version": "0.11.0",
   "description": "XML Formatter",
-  "activationCommands": {
-    "atom-workspace": [
-      "xml-formatter:indent"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/neyestrabelli/xml-formatter"
-  },
+  "repository":  "https://github.com/neyestrabelli/xml-formatter",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {},
   "readme": "# xml-formatter package\n\nSimple XML Formatter, hit `CMD-SHIFT-X`.\n\n## Preview\n\n![Format in Action 2](http://www.neyestrabelli.com/arquivos/xml-formatter3.gif)\n",
